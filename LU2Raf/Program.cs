@@ -11,6 +11,7 @@ builder.Services.AddTransient<IEnvironment2DRepository>(o => new Environment2DRe
 builder.Services.AddTransient<IObject2DRepository>(o => new Object2DRepository(sqlConnectionString));
 
 var app = builder.Build();
+app.MapGet("/", () => "Hello world, the API is up!");
 
 if (app.Environment.IsDevelopment())
 {
