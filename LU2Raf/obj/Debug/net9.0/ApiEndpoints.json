@@ -1,0 +1,165 @@
+[
+  {
+    "ContainingType": "LU2Raf.Controllers.Environment2DController",
+    "Method": "CreateEnvironment2D",
+    "RelativePath": "api/Environment2D/CreateEnvironment2D",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "environment",
+        "Type": "LU2Raf.Models.Environment2D",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LU2Raf.Controllers.Environment2DController",
+    "Method": "CreateObject2D",
+    "RelativePath": "api/Environment2D/CreateObject2D",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "obj",
+        "Type": "LU2Raf.Models.Object2D",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LU2Raf.Controllers.Environment2DController",
+    "Method": "CreateUser",
+    "RelativePath": "api/Environment2D/CreateUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "LU2Raf.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LU2Raf.Controllers.Environment2DController",
+    "Method": "GetEnvironment2D",
+    "RelativePath": "api/Environment2D/GetEnvironment2D/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LU2Raf.Controllers.Environment2DController",
+    "Method": "GetEnvironments",
+    "RelativePath": "api/Environment2D/GetEnvironments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LU2Raf.Controllers.Environment2DController",
+    "Method": "GetObject2D",
+    "RelativePath": "api/Environment2D/GetObject2D/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LU2Raf.Controllers.Environment2DController",
+    "Method": "GetObjects",
+    "RelativePath": "api/Environment2D/GetObjects",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LU2Raf.Controllers.Environment2DController",
+    "Method": "GetUser",
+    "RelativePath": "api/Environment2D/GetUser/{username}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LU2Raf.Controllers.Environment2DController",
+    "Method": "GetUsers",
+    "RelativePath": "api/Environment2D/GetUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LU2Raf.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[LU2Raf.Models.WeatherForecast, LU2Raf, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  },
+  {
+    "ContainingType": "LU2Raf.Controllers.WeatherForecastController",
+    "Method": "Create",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "weatherForecast",
+        "Type": "LU2Raf.Models.WeatherForecast",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

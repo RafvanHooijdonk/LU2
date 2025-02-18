@@ -1,0 +1,6 @@
+@LU2Raf_HostAddress = http://localhost:5031
+
+GET {{LU2Raf_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
