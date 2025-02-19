@@ -13,7 +13,6 @@ builder.Services.AddTransient<IObject2DRepository>(o => new Object2DRepository(s
 
 var app = builder.Build();
 
-// HTML weergave voor ASCII art en tekst
 app.MapGet("/", () =>
 {
     var asciiArt = @"
