@@ -12,8 +12,28 @@ builder.Services.AddTransient<IEnvironment2DRepository>(o => new Environment2DRe
 builder.Services.AddTransient<IObject2DRepository>(o => new Object2DRepository(sqlConnectionString));
 
 var app = builder.Build();
-app.MapGet("/", () => $"The API is up. Connection string found: {(sqlConnectionStringFound ? "Yes" : "No")}");
 
+// ASCII art bovenaan
+Console.WriteLine(@"
+ ________  ________  ___
+|\   __  \|\   __  \|\  \
+\ \  \|\  \ \  \|\  \ \  \
+ \ \   __  \ \   ____\ \  \
+  \ \  \ \  \ \  \___|\ \  \
+   \ \__\ \__\ \__\    \ \__\
+    \|__|\|__|\|__|     \|__|
+
+ ___  ________   ________ ________  ________  _____ ______   ________  _________  ___  ________  ________      
+|\  \|\   ___  \|\  _____\\   __  \|\   __  \|\   _ \  _   \|\   __  \|\___   ___\\  \|\   __  \|\   ___  \    
+\ \  \ \  \\ \  \ \  \__/\ \  \|\  \ \  \|\  \ \  \\\__\ \  \ \  \|\  \|___ \  \_\ \  \ \  \|\  \ \  \\ \  \   
+ \ \  \ \  \\ \  \ \   __\\ \  \\\  \ \   _  _\ \  \\|__| \  \ \   __  \   \ \  \ \ \  \ \  \\\  \ \  \\ \  \  
+  \ \  \ \  \\ \  \ \  \_| \ \  \\\  \ \  \\  \\ \  \    \ \  \ \  \ \  \   \ \  \ \ \  \ \  \\\  \ \  \\ \  \ 
+   \ \__\ \__\\ \__\ \__\   \ \_______\ \__\\ _\\ \__\    \ \__\ \__\ \__\   \ \__\ \ \__\ \_______\ \__\\ \__\
+    \|__|\|__| \|__|\|__|    \|_______|\|__|\|__|\|__|     \|__|\|__|\|__|    \|__|  \|__|\|_______|\|__| \|__|
+");
+
+// De oorspronkelijke tekst
+app.MapGet("/", () => $"The API is up. Connection string found: {(sqlConnectionStringFound ? "Yes" : "No")}");
 
 if (app.Environment.IsDevelopment())
 {
