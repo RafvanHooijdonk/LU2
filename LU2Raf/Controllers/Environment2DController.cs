@@ -42,7 +42,7 @@ namespace LU2Raf.Controllers
             return UserStore.Users.Count == 0 ? NotFound("No users found") : Ok(UserStore.Users);
         }
 
-        [HttpPost("CreateEnvironment2D")]
+        [HttpPost("CreateEnvironment")]
         public async Task<ActionResult> CreateEnvironment(Environment2D environment)
         {
             await _environmentRepo.AddAsync(environment);
@@ -63,7 +63,7 @@ namespace LU2Raf.Controllers
             return Ok(environments);
         }
 
-        [HttpPost("CreateObject2D")]
+        [HttpPost("CreateObject")]
         public async Task<ActionResult> CreateObject(Object2D obj)
         {
             await _objectRepo.AddAsync(obj);
