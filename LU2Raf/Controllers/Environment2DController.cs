@@ -43,14 +43,14 @@ namespace LU2Raf.Controllers
         }
 
         [HttpPost("CreateEnvironment2D")]
-        public async Task<ActionResult> CreateEnvironment2D(Environment2D environment)
+        public async Task<ActionResult> CreateEnvironment(Environment2D environment)
         {
             await _environmentRepo.AddAsync(environment);
-            return CreatedAtAction(nameof(GetEnvironment2D), new { id = environment.Id }, environment);
+            return CreatedAtAction(nameof(GetEnvironment), new { id = environment.Id }, environment);
         }
 
-        [HttpGet("GetEnvironment2D/{id}")]
-        public async Task<ActionResult> GetEnvironment2D(Guid Id)
+        [HttpGet("GetEnvironment/{id}")]
+        public async Task<ActionResult> GetEnvironment(Guid Id)
         {
             var environment = await _environmentRepo.GetByIdAsync(Id);
             return environment == null ? NotFound("Environment not found") : Ok(environment);
@@ -64,14 +64,14 @@ namespace LU2Raf.Controllers
         }
 
         [HttpPost("CreateObject2D")]
-        public async Task<ActionResult> CreateObject2D(Object2D obj)
+        public async Task<ActionResult> CreateObject(Object2D obj)
         {
             await _objectRepo.AddAsync(obj);
-            return CreatedAtAction(nameof(GetObject2D), new { id = obj.Id }, obj);
+            return CreatedAtAction(nameof(CreateObject), new { id = obj.Id }, obj);
         }
 
-        [HttpGet("GetObject2D/{id}")]
-        public async Task<ActionResult> GetObject2D(Guid Id)
+        [HttpGet("GetObject/{id}")]
+        public async Task<ActionResult> GetObject(Guid Id)
         {
             var obj = await _objectRepo.GetByIdAsync(Id);
             return obj == null ? NotFound("Object not found") : Ok(obj);

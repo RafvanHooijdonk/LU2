@@ -23,14 +23,13 @@ namespace LU2Raf.Repositories
             return await connection.QueryAsync<Object2D>("SELECT Id, PrefabId, PositionX, PositionY, ScaleX, ScaleY, RotationZ, SortingLayer FROM Object2D");
         }
 
-        public async Task<Object2D> GetByIdAsync(Guid Id)
+        public async Task<Object2D> GetByIdAsync(Guid id)
         {
             using var connection = new SqlConnection(_sqlConnectionString);
             await connection.OpenAsync();
-            string query = "SELECT * FROM Object2D WHERE Id = @Id";
-            return await connection.QuerySingleOrDefaultAsync<Object2D>(query, new { Id = Id });
+            string query = "SELECT* FROM Object2D WHERE Id = CAST(@Id AS UNIQUEIDENTIFIER)";
+            return await connection.QuerySingleOrDefaultAsync<Object2D>(query, new { id });
         }
-
         public async Task AddAsync(Object2D obj)
         {
             obj.Id = Guid.NewGuid();
