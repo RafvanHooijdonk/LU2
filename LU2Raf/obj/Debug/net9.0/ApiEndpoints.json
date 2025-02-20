@@ -19,8 +19,8 @@
   },
   {
     "ContainingType": "LU2Raf.Controllers.Environment2DController",
-    "Method": "CreateEnvironment",
-    "RelativePath": "api/Environment2D/CreateEnvironment2D",
+    "Method": "CreateEnvironment2D",
+    "RelativePath": "api/Environment2D/CreateEnvironment",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -35,8 +35,8 @@
   },
   {
     "ContainingType": "LU2Raf.Controllers.Environment2DController",
-    "Method": "CreateObject",
-    "RelativePath": "api/Environment2D/CreateObject2D",
+    "Method": "CreateObject2D",
+    "RelativePath": "api/Environment2D/CreateObject",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -67,7 +67,7 @@
   },
   {
     "ContainingType": "LU2Raf.Controllers.Environment2DController",
-    "Method": "GetEnvironment",
+    "Method": "GetEnvironment2D",
     "RelativePath": "api/Environment2D/GetEnvironment/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -93,7 +93,7 @@
   },
   {
     "ContainingType": "LU2Raf.Controllers.Environment2DController",
-    "Method": "GetObject",
+    "Method": "GetObject2D",
     "RelativePath": "api/Environment2D/GetObject/{id}",
     "HttpMethod": "GET",
     "IsController": true,
