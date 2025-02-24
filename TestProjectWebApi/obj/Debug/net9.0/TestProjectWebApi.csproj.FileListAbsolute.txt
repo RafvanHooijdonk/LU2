@@ -226,3 +226,8 @@ C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\TestProjec
 C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\TestProjectWebApi\obj\Debug\net9.0\TestProjectWebApi.pdb
 C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\TestProjectWebApi\obj\Debug\net9.0\TestProjectWebApi.genruntimeconfig.cache
 C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\TestProjectWebApi\obj\Debug\net9.0\ref\TestProjectWebApi.dll
+C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\TestProjectWebApi\bin\Debug\net9.0\Avans.Identity.Dapper.dll
+C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\TestProjectWebApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\TestProjectWebApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\TestProjectWebApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\TestProjectWebApi\obj\Debug\net9.0\TestProjectWebApi.sourcelink.json

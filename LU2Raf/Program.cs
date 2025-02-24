@@ -1,4 +1,8 @@
 using LU2Raf.Repositories;
+using Microsoft.AspNetCore.Authentication.BearerToken;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System.Threading;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +16,61 @@ var sqlConnectionStringFound = !string.IsNullOrWhiteSpace(sqlConnectionString);
 builder.Services.AddTransient<IEnvironment2DRepository>(o => new Environment2DRepository(sqlConnectionString));
 builder.Services.AddTransient<IObject2DRepository>(o => new Object2DRepository(sqlConnectionString));
 
+// Adding Swagger Service for API documentation
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddAuthorization();
+builder.Services
+    .AddIdentityApiEndpoints<IdentityUser>(options =>
+    {
+        options.User.RequireUniqueEmail = true;
+        options.SignIn.RequireConfirmedPhoneNumber = true;
+
+        options.Password.RequireDigit = false;
+        options.Password.RequireLowercase = true;
+        options.Password.RequireUppercase = true;
+    })
+
+    .AddDapperStores(options => {
+        options.ConnectionString = sqlConnectionString;
+
+    });
+
+builder.Services
+    .AddOptions<BearerTokenOptions>(IdentityConstants.BearerScheme)
+    .Configure ( options =>
+    {
+        options.BearerTokenExpiration = TimeSpan.FromMinutes(value: 60);
+    });
+
 var app = builder.Build();
 
+app.UseAuthentication();
+app.MapGroup(prefix: "/Account")
+    .MapIdentityApi<IdentityUser>();
+
+app.MapPost(pattern: "/account/logout",
+    async (SignInManager<IdentityUser> SignInManager,
+    [FromBody] object empty) => {
+        if (empty != null)
+        { 
+            await SignInManager.SignOutAsync();
+            return Results.Ok();
+        }
+        return Results.Unauthorized();
+    })
+    .RequireAuthorization();
+
+app.MapControllers()
+    .RequireAuthorization();
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.MapGet("/", () =>
 {

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LU2Raf.Controllers
 {
@@ -23,6 +24,7 @@ namespace LU2Raf.Controllers
         }
 
         [HttpPost("CreateUser")]
+        [Authorize]
         public ActionResult CreateUser(User user)
         {
             UserStore.Users.Add(user);
@@ -30,6 +32,7 @@ namespace LU2Raf.Controllers
         }
 
         [HttpGet("GetUser/{username}")]
+        [Authorize]
         public ActionResult GetUser(string username)
         {
             var user = UserStore.Users.FirstOrDefault(u => u.Username == username);
@@ -37,12 +40,14 @@ namespace LU2Raf.Controllers
         }
 
         [HttpGet("GetUsers")]
+        [Authorize]
         public ActionResult GetUsers()
         {
             return UserStore.Users.Count == 0 ? NotFound("No users found") : Ok(UserStore.Users);
         }
 
         [HttpPost("CreateEnvironment")]
+        [Authorize]
         public async Task<ActionResult> CreateEnvironment2D(Environment2D environment)
         {
             await _environmentRepo.AddAsync(environment);
@@ -50,6 +55,7 @@ namespace LU2Raf.Controllers
         }
 
         [HttpGet("GetEnvironment/{id}")]
+        [Authorize]
         public async Task<ActionResult> GetEnvironment2D(Guid Id)
         {
             var environment = await _environmentRepo.GetByIdAsync(Id);
@@ -57,6 +63,7 @@ namespace LU2Raf.Controllers
         }
 
         [HttpGet("GetEnvironments")]
+        [Authorize]
         public async Task<ActionResult> GetEnvironments()
         {
             var environments = await _environmentRepo.GetAllAsync();
@@ -64,6 +71,7 @@ namespace LU2Raf.Controllers
         }
 
         [HttpPost("CreateObject")]
+        [Authorize]
         public async Task<ActionResult> CreateObject2D(Object2D obj)
         {
             await _objectRepo.AddAsync(obj);
@@ -71,6 +79,7 @@ namespace LU2Raf.Controllers
         }
 
         [HttpGet("GetObject/{id}")]
+        [Authorize]
         public async Task<ActionResult> GetObject2D(Guid Id)
         {
             var obj = await _objectRepo.GetByIdAsync(Id);
@@ -78,6 +87,7 @@ namespace LU2Raf.Controllers
         }
 
         [HttpGet("GetObjects")]
+        [Authorize]
         public async Task<ActionResult> GetObjects()
         {
             var objects = await _objectRepo.GetAllAsync();

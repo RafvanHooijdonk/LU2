@@ -82,3 +82,7 @@ C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\LU2Raf\bin
 C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\LU2Raf\bin\Debug\net9.0\Castle.Core.dll
 C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\LU2Raf\bin\Debug\net9.0\Moq.dll
 C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\LU2Raf\obj\Debug\net9.0\LU2Raf.sourcelink.json
+C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\LU2Raf\bin\Debug\net9.0\Avans.Identity.Dapper.dll
+C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\LU2Raf\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\LU2Raf\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\rafva\Documents\Avans Informatica\2024\P1.3\2. Projecten\LU2\LU2Raf\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
