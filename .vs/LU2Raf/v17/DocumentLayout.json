@@ -63,7 +63,7 @@
               "RelativeDocumentMoniker": "LU2Raf\\Program.cs",
               "ToolTip": "C:\\Users\\rafva\\Documents\\Avans Informatica\\2024\\P1.3\\2. Projecten\\LU2\\LU2Raf\\Program.cs",
               "RelativeToolTip": "LU2Raf\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-18T09:41:21.177Z",
               "EditorCaption": ""
@@ -78,8 +78,7 @@
               "RelativeToolTip": "LU2Raf\\Repositories\\Environment2DRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAABiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T13:01:50.303Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T13:01:50.303Z"
             },
             {
               "$type": "Document",
@@ -91,8 +90,7 @@
               "RelativeToolTip": "LU2Raf\\Repositories\\IEnvironment2DRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T13:14:56.583Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T13:14:56.583Z"
             },
             {
               "$type": "Document",
@@ -104,8 +102,7 @@
               "RelativeToolTip": "LU2Raf\\Repositories\\IObject2DRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:32:02.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T14:32:02.919Z"
             },
             {
               "$type": "Document",
@@ -117,8 +114,7 @@
               "RelativeToolTip": "LU2Raf\\Repositories\\Object2DRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T13:37:58.397Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-15T13:37:58.397Z"
             },
             {
               "$type": "Document",
@@ -130,8 +126,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\e2061e19-4e64-4dd7-898c-6cc296d26ffa\\secrets.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-18T10:29:49.217Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T10:29:49.217Z"
             },
             {
               "$type": "Document",
@@ -143,8 +138,7 @@
               "RelativeToolTip": "LU2Raf\\Controllers\\Environment2DController.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T18:33:16.849Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T18:33:16.849Z"
             }
           ]
         }
