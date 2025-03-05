@@ -11,7 +11,6 @@ namespace LU2Raf.Models
         [Required]
         public string Name { get; set; }
 
-        [Required]
         public string? OwnerUserId { get; set; }
 
         [Required]
