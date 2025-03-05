@@ -82,12 +82,12 @@ namespace LU2Raf.Controllers
         public async Task<ActionResult> GetEnvironments()
         {
             var ownerUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(ownerUserId) || !Guid.TryParse(ownerUserId, out Guid userId))
+            if (string.IsNullOrEmpty(ownerUserId) || !Guid.TryParse(ownerUserId, out Guid UserId))
             {
                 return Unauthorized();
             }
 
-            var environment = await _environmentRepo.GetByOwnerUserIdAsync(userId);
+            var environment = await _environmentRepo.GetByOwnerUserIdAsync(UserId);
 
             if (environment == null)
             {
