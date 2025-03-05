@@ -81,8 +81,8 @@ namespace LU2Raf.Controllers
         [Authorize]
         public async Task<ActionResult> GetEnvironments()
         {
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out Guid userId))
+            var ownerUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(ownerUserId) || !Guid.TryParse(ownerUserId, out Guid userId))
             {
                 return Unauthorized();
             }
