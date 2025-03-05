@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
 
 namespace LU2Raf.Controllers
 {
@@ -53,7 +54,20 @@ namespace LU2Raf.Controllers
         [Authorize]
         public async Task<ActionResult> CreateEnvironment2D(Environment2D environment)
         {
+            // Haal de UserId van de ingelogde gebruiker uit de claims
+            var ownerUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (ownerUserId == null)
+            {
+                return Unauthorized("User is not authenticated.");
+            }
+
+            // Zet de UserId om naar een Guid en stel deze in op de environment
+            environment.OwnerUserId = Guid.Parse(ownerUserId); // Zet de UserId als OwnerUserId in de environment
+
+            // Sla de environment op in de database
             await _environmentRepo.AddAsync(environment);
+
             return CreatedAtAction(nameof(CreateEnvironment2D), new { id = environment.Id }, environment);
         }
 

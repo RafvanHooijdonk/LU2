@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
+using System.Buffers;
 
 namespace LU2Raf.Models
 {
@@ -11,6 +12,9 @@ namespace LU2Raf.Models
         public string Name { get; set; }
 
         [Required]
+        public Guid OwnerUserId { get; set; }
+
+        [Required]
         public int MinLength { get; set; }
 
         [Required]
@@ -18,10 +22,11 @@ namespace LU2Raf.Models
 
         public Environment2D() { }
 
-        public Environment2D(string name, int minLength, int maxLength)
+        public Environment2D(string name, Guid ownerUserId, int minLength, int maxLength)
         {
             Id = Guid.NewGuid();
             Name = name;
+            OwnerUserId = ownerUserId;
             MinLength = minLength;
             MaxLength = maxLength;
         }
