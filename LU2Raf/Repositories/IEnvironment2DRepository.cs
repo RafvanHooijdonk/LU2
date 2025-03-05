@@ -8,6 +8,6 @@ namespace LU2Raf.Repositories
     {
         Task AddAsync(Environment2D environment);
         Task<IEnumerable<Environment2D>> GetAllAsync();
-        Task<Environment2D> GetByIdAsync(Guid Id); 
+        Task<Environment2D> GetByOwnerUserIdAsync(Guid id); 
     }
 }

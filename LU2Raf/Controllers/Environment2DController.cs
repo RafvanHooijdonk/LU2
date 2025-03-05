@@ -81,9 +81,23 @@ namespace LU2Raf.Controllers
         [Authorize]
         public async Task<ActionResult> GetEnvironments()
         {
-            var environments = await _environmentRepo.GetAllAsync();
-            return Ok(environments);
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out Guid userId))
+            {
+                return Unauthorized();
+            }
+
+            var environment = await _environmentRepo.GetByOwnerUserIdAsync(userId);
+
+            if (environment == null)
+            {
+                return NotFound("No environments found for this user.");
+            }
+
+            return Ok(environment);
         }
+
+
 
         [HttpPost("CreateObject")]
         [Authorize]

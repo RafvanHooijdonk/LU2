@@ -22,11 +22,11 @@ namespace LU2Raf.Repositories
             return await connection.QueryAsync<Environment2D>("SELECT Id, Name, MinLength, MaxLength FROM Environment2D");
         }
 
-        public async Task<Environment2D> GetByIdAsync(Guid id)
+        public async Task<Environment2D> GetByOwnerUserIdAsync(Guid id)
         {
             using var connection = new SqlConnection(_sqlConnectionString);
             await connection.OpenAsync();
-            string query = "SELECT* FROM Environment2D WHERE Id = CAST(@Id AS UNIQUEIDENTIFIER)"; 
+            string query = "SELECT * FROM Environment2D WHERE OwnerUserId = CAST(@Id AS UNIQUEIDENTIFIER)"; 
             return await connection.QuerySingleOrDefaultAsync<Environment2D>(query, new { id });
         }
 
