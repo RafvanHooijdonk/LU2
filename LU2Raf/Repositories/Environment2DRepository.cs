@@ -27,7 +27,7 @@ namespace LU2Raf.Repositories
             using var connection = new SqlConnection(_sqlConnectionString);
             await connection.OpenAsync();
             string query = "SELECT * FROM Environment2D WHERE OwnerUserId = @OwnerUserId";
-            return await connection.QuerySingleOrDefaultAsync<Environment2D>(query, new { OwnerUserId = id });
+            return await connection.QueryFirstOrDefaultAsync<Environment2D>(query, new { OwnerUserId = id });
         }
 
         public async Task AddAsync(Environment2D environment)
