@@ -21,7 +21,7 @@ namespace LU2Raf.Controllers
         private readonly IObject2DRepository _objectRepo;
         private readonly Services.IAuthenticationService _authenticationService;
 
-        public Environment2DController(IEnvironment2DRepository environmentRepo, IObject2DRepository objectRepo, IAuthenticationService authenticationServiceRepo)
+        public Environment2DController(IEnvironment2DRepository environmentRepo, IObject2DRepository objectRepo, Services.IAuthenticationService authenticationServiceRepo)
         {
             _environmentRepo = environmentRepo;
             _objectRepo = objectRepo;
