@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using LU2Raf.Models;
 using LU2Raf.Repositories;
+using LU2Raf.Services;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace LU2Raf.Controllers
     {
         private readonly IEnvironment2DRepository _environmentRepo;
         private readonly IObject2DRepository _objectRepo;
-        private readonly IAuthenticationService _authenticationService;
+        private readonly Services.IAuthenticationService _authenticationService;
 
         public Environment2DController(IEnvironment2DRepository environmentRepo, IObject2DRepository objectRepo, IAuthenticationService authenticationServiceRepo)
         {
@@ -54,7 +55,6 @@ namespace LU2Raf.Controllers
         [Authorize]
         public async Task<ActionResult> CreateEnvironment2D(Environment2D environment)
         {
-            // Haal de UserId van de ingelogde gebruiker uit de claims
             var ownerUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             if (ownerUserId == null)
@@ -62,9 +62,8 @@ namespace LU2Raf.Controllers
                 return Unauthorized("User is not authenticated.");
             }
 
-            environment.OwnerUserId = ownerUserId; // Zet de UserId als OwnerUserId in de environment
+            environment.OwnerUserId = ownerUserId; 
 
-            // Sla de environment op in de database
             await _environmentRepo.AddAsync(environment);
 
             return CreatedAtAction(nameof(CreateEnvironment2D), new { id = environment.Id }, environment);

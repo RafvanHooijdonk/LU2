@@ -36,17 +36,15 @@ namespace LU2Raf.Repositories
             using var connection = new SqlConnection(_sqlConnectionString);
             await connection.OpenAsync();
 
-            // Voeg de OwnerUserId toe aan de query
             string query = "INSERT INTO Environment2D (Id, Name, MinLength, MaxLength, OwnerUserId) VALUES (@Id, @Name, @MinLength, @MaxLength, @OwnerUserId)";
 
-            // Zorg ervoor dat de OwnerUserId wordt doorgegeven in de parameters
             await connection.ExecuteAsync(query, new
             {
                 Id = environment.Id,
                 Name = environment.Name,
                 MinLength = environment.MinLength,
                 MaxLength = environment.MaxLength,
-                OwnerUserId = environment.OwnerUserId // Toegevoegd
+                OwnerUserId = environment.OwnerUserId 
             });
         }
     }

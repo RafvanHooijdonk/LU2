@@ -12,7 +12,7 @@ namespace LU2Raf.Models
         public string Name { get; set; }
 
         [Required]
-        public string OwnerUserId { get; set; }
+        public string? OwnerUserId { get; set; }
 
         [Required]
         public int MinLength { get; set; }
