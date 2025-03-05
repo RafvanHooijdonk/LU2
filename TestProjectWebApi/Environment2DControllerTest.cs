@@ -1,6 +1,7 @@
 ﻿using System;
 using LU2Raf.Controllers;
 using LU2Raf.Models;
+using LU2Raf.Services;
 using LU2Raf.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -12,13 +13,19 @@ namespace TestProjectWebApi
     {
         private readonly Mock<IEnvironment2DRepository> _mockEnvironmentRepo;
         private readonly Mock<IObject2DRepository> _mockObjectRepo;
+        private readonly Mock<LU2Raf.Services.IAuthenticationService> _mockAuthServiceRepo; // <-- Expliciete namespace gebruiken
         private readonly Environment2DController _controller;
 
         public Environment2DControllerTest()
         {
             _mockEnvironmentRepo = new Mock<IEnvironment2DRepository>();
             _mockObjectRepo = new Mock<IObject2DRepository>();
-            _controller = new Environment2DController(_mockEnvironmentRepo.Object, _mockObjectRepo.Object);
+            _mockAuthServiceRepo = new Mock<LU2Raf.Services.IAuthenticationService>(); // <-- Expliciete namespace gebruiken
+
+            _controller = new Environment2DController(
+                _mockEnvironmentRepo.Object,
+                _mockObjectRepo.Object,
+                (Microsoft.AspNetCore.Authentication.IAuthenticationService)_mockAuthServiceRepo.Object);
         }
 
         [TestMethod]
@@ -26,6 +33,7 @@ namespace TestProjectWebApi
         {
             // Arrange
             var environment = new Environment2D("Test Environment", 10, 20);
+            _mockEnvironmentRepo.Setup(repo => repo.AddAsync(environment)).Returns(Task.CompletedTask);
 
             // Act
             var result = await _controller.CreateEnvironment2D(environment);
@@ -70,7 +78,7 @@ namespace TestProjectWebApi
             var result = await _controller.GetEnvironment2D(environmentId);
 
             // Assert
-            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
+            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
         }
 
         [TestMethod]
@@ -78,10 +86,10 @@ namespace TestProjectWebApi
         {
             // Arrange
             var environments = new List<Environment2D>
-                    {
-                        new Environment2D("Environment 1", 10, 20),
-                        new Environment2D("Environment 2", 15, 25)
-                    };
+            {
+                new Environment2D("Environment 1", 10, 20),
+                new Environment2D("Environment 2", 15, 25)
+            };
             _mockEnvironmentRepo.Setup(repo => repo.GetAllAsync()).ReturnsAsync(environments);
 
             // Act
@@ -101,6 +109,7 @@ namespace TestProjectWebApi
         {
             // Arrange
             var obj = new Object2D("Prefab1", 1.0f, 2.0f, 1.0f, 1.0f, 0.0f, 0);
+            _mockObjectRepo.Setup(repo => repo.AddAsync(obj)).Returns(Task.CompletedTask);
 
             // Act
             var result = await _controller.CreateObject2D(obj);
@@ -145,7 +154,7 @@ namespace TestProjectWebApi
             var result = await _controller.GetObject2D(objectId);
 
             // Assert
-            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
+            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
         }
 
         [TestMethod]
@@ -153,10 +162,10 @@ namespace TestProjectWebApi
         {
             // Arrange
             var objects = new List<Object2D>
-                    {
-                        new Object2D("Prefab1", 1.0f, 2.0f, 1.0f, 1.0f, 0.0f, 0),
-                        new Object2D("Prefab2", 3.0f, 4.0f, 1.5f, 1.5f, 45.0f, 1)
-                    };
+            {
+                new Object2D("Prefab1", 1.0f, 2.0f, 1.0f, 1.0f, 0.0f, 0),
+                new Object2D("Prefab2", 3.0f, 4.0f, 1.5f, 1.5f, 45.0f, 1)
+            };
             _mockObjectRepo.Setup(repo => repo.GetAllAsync()).ReturnsAsync(objects);
 
             // Act

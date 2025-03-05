@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace LU2Raf.Controllers
 {
@@ -15,12 +16,14 @@ namespace LU2Raf.Controllers
     public class Environment2DController : ControllerBase
     {
         private readonly IEnvironment2DRepository _environmentRepo;
-        private readonly IObject2DRepository _objectRepo; 
+        private readonly IObject2DRepository _objectRepo;
+        private readonly IAuthenticationService _authenticationService;
 
-        public Environment2DController(IEnvironment2DRepository environmentRepo, IObject2DRepository objectRepo)
+        public Environment2DController(IEnvironment2DRepository environmentRepo, IObject2DRepository objectRepo, IAuthenticationService authenticationServiceRepo)
         {
             _environmentRepo = environmentRepo;
             _objectRepo = objectRepo;
+            _authenticationService = authenticationServiceRepo;
         }
 
         [HttpPost("CreateUser")]

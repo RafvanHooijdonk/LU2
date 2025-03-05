@@ -1,4 +1,5 @@
 using LU2Raf.Repositories;
+using LU2Raf.Services;
 using Microsoft.AspNetCore.Authentication.BearerToken;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Services
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<IAuthenticationService, AspNetIdentityAuthenticationService>();
 
 var sqlConnectionString = builder.Configuration["SqlConnectionString"];
 var sqlConnectionStringFound = !string.IsNullOrWhiteSpace(sqlConnectionString);
