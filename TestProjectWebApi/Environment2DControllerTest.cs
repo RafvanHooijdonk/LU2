@@ -32,7 +32,7 @@ namespace TestProjectWebApi
         public async Task CreateEnvironment2D_ReturnsCreatedAtActionResult()
         {
             // Arrange
-            var environment = new Environment2D("Test Environment", 10, 20);
+            var environment = new Environment2D("Test Environment","v1342-t2sds-3wsdf-te3st", 100, 100);
             _mockEnvironmentRepo.Setup(repo => repo.AddAsync(environment)).Returns(Task.CompletedTask);
 
             // Act
@@ -52,7 +52,7 @@ namespace TestProjectWebApi
         {
             // Arrange
             var environmentId = Guid.NewGuid();
-            var environment = new Environment2D("Test Environment", 10, 20) { Id = environmentId };
+            var environment = new Environment2D("Test Environment","v1342-t2sds-3wsdf-te3st", 100, 100) { Id = environmentId };
             _mockEnvironmentRepo.Setup(repo => repo.GetByIdAsync(environmentId)).ReturnsAsync(environment);
 
             // Act
@@ -87,8 +87,8 @@ namespace TestProjectWebApi
             // Arrange
             var environments = new List<Environment2D>
             {
-                new Environment2D("Environment 1", 10, 20),
-                new Environment2D("Environment 2", 15, 25)
+                new Environment2D("Environment 1","v1342-t2sds-3wsdf-te3st", 100, 100),
+                new Environment2D("Environment 2","v1342-t2sds-3wsdf-te3st", 100, 100)
             };
             _mockEnvironmentRepo.Setup(repo => repo.GetAllAsync()).ReturnsAsync(environments);
 

@@ -62,8 +62,7 @@ namespace LU2Raf.Controllers
                 return Unauthorized("User is not authenticated.");
             }
 
-            // Zet de UserId om naar een Guid en stel deze in op de environment
-            environment.OwnerUserId = Guid.Parse(ownerUserId); // Zet de UserId als OwnerUserId in de environment
+            environment.OwnerUserId = ownerUserId; // Zet de UserId als OwnerUserId in de environment
 
             // Sla de environment op in de database
             await _environmentRepo.AddAsync(environment);

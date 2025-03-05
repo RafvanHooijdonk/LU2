@@ -12,7 +12,7 @@ namespace LU2Raf.Models
         public string Name { get; set; }
 
         [Required]
-        public Guid OwnerUserId { get; set; }
+        public string OwnerUserId { get; set; }
 
         [Required]
         public int MinLength { get; set; }
@@ -20,9 +20,7 @@ namespace LU2Raf.Models
         [Required]
         public int MaxLength { get; set; }
 
-        public Environment2D() { }
-
-        public Environment2D(string name, Guid ownerUserId, int minLength, int maxLength)
+        public Environment2D(string name, string ownerUserId, int minLength, int maxLength)
         {
             Id = Guid.NewGuid();
             Name = name;
