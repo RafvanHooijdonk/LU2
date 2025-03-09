@@ -37,6 +37,7 @@ builder.Services
         options.Password.RequireLowercase = true;
         options.Password.RequireUppercase = true;
         options.Password.RequireNonAlphanumeric = true;
+        options.Password.RequiredLength = 10;
     })
     .AddDapperStores(options =>
     {
