@@ -35,7 +35,11 @@ namespace LU2Raf.Repositories
             obj.Id = Guid.NewGuid();
             using var connection = new SqlConnection(_sqlConnectionString);
             await connection.OpenAsync();
-            string query = "INSERT INTO Object2D (Id, PrefabId, PositionX, PositionY, ScaleX, ScaleY, RotationZ, SortingLayer) VALUES (@Id, @PrefabId, @PositionX, @PositionY, @ScaleX, @ScaleY, @RotationZ, @SortingLayer)";
+
+            // Pas de query aan om ook de EnvironmentId in te voegen
+            string query = "INSERT INTO Object2D (Id, PrefabId, PositionX, PositionY, ScaleX, ScaleY, RotationZ, SortingLayer, EnvironmentId) " +
+                           "VALUES (@Id, @PrefabId, @PositionX, @PositionY, @ScaleX, @ScaleY, @RotationZ, @SortingLayer, @EnvironmentId)";
+
             await connection.ExecuteAsync(query, new
             {
                 Id = obj.Id,
@@ -45,7 +49,8 @@ namespace LU2Raf.Repositories
                 ScaleX = obj.ScaleX,
                 ScaleY = obj.ScaleY,
                 RotationZ = obj.RotationZ,
-                SortingLayer = obj.SortingLayer
+                SortingLayer = obj.SortingLayer,
+                EnvironmentId = obj.EnvironmentId  // Voeg EnvironmentId toe aan de query
             });
         }
     }

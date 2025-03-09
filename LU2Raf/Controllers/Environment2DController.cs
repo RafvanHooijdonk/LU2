@@ -97,22 +97,29 @@ namespace LU2Raf.Controllers
             return Ok(environment);
         }
 
-
-
         [HttpPost("CreateObject")]
         [Authorize]
         public async Task<ActionResult> CreateObject2D(Object2D obj)
         {
-            await _objectRepo.AddAsync(obj);
-            return CreatedAtAction(nameof(CreateObject2D), new { id = obj.Id }, obj);
-        }
+            // Verkrijg de eigenaar van het object (gebruiker)
+            var ownerUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-        [HttpGet("GetObject/{id}")]
-        [Authorize]
-        public async Task<ActionResult> GetObject2D(Guid Id)
-        {
-            var obj = await _objectRepo.GetByIdAsync(Id);
-            return obj == null ? NotFound("Object not found") : Ok(obj);
+            if (ownerUserId == null)
+            {
+                return Unauthorized("User is not authenticated.");
+            }
+
+            // Als er geen EnvironmentId is meegegeven, stuur dan een foutmelding
+            if (obj.EnvironmentId == Guid.Empty)
+            {
+                return BadRequest("Object must be linked to a valid environment.");
+            }
+
+            // Voeg het object toe aan de repository
+            await _objectRepo.AddAsync(obj);
+
+            // Retourneer een succesvolle respons met het object
+            return CreatedAtAction(nameof(CreateObject2D), new { id = obj.Id }, obj);
         }
 
         [HttpGet("GetObjects")]
