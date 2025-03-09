@@ -12,11 +12,11 @@
         public int SortingLayer { get; set; }
 
         // Voeg hier de EnvironmentId toe
-        public Guid EnvironmentId { get; set; }
+        public string EnvironmentId { get; set; }
 
         public Object2D() { }
 
-        public Object2D(string prefabId, float positionX, float positionY, float scaleX, float scaleY, float rotationZ, int sortingLayer, Guid environmentId)
+        public Object2D(string prefabId, float positionX, float positionY, float scaleX, float scaleY, float rotationZ, int sortingLayer, string environmentId)
         {
             Id = Guid.NewGuid();
             PrefabId = prefabId;

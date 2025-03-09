@@ -101,24 +101,17 @@ namespace LU2Raf.Controllers
         [Authorize]
         public async Task<ActionResult> CreateObject2D(Object2D obj)
         {
-            // Verkrijg de eigenaar van het object (gebruiker)
             var ownerUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             if (ownerUserId == null)
             {
                 return Unauthorized("User is not authenticated.");
             }
-
-            // Als er geen EnvironmentId is meegegeven, stuur dan een foutmelding
-            if (obj.EnvironmentId == Guid.Empty)
+            if (obj.EnvironmentId == string.Empty)
             {
                 return BadRequest("Object must be linked to a valid environment.");
             }
-
-            // Voeg het object toe aan de repository
             await _objectRepo.AddAsync(obj);
-
-            // Retourneer een succesvolle respons met het object
             return CreatedAtAction(nameof(CreateObject2D), new { id = obj.Id }, obj);
         }
 
