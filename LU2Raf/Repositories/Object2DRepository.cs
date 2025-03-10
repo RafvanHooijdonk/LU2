@@ -20,7 +20,7 @@ namespace LU2Raf.Repositories
         {
             using var connection = new SqlConnection(_sqlConnectionString);
             await connection.OpenAsync();
-            return await connection.QueryAsync<Object2D>("SELECT Id, PrefabId, PositionX, PositionY, ScaleX, ScaleY, RotationZ, SortingLayer FROM Object2D");
+            return await connection.QueryAsync<Object2D>("SELECT Id, PrefabId, PositionX, PositionY, ScaleX, ScaleY, RotationZ, SortingLayer, EnvironmentId FROM Object2D");
         }
 
         public async Task<Object2D> GetByIdAsync(Guid id)

@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\rafva\\Documents\\Avans Informatica\\2024\\P1.3\\2. Projecten\\LU2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|c:\\users\\rafva\\documents\\avans informatica\\2024\\p1.3\\2. projecten\\lu2\\lu2raf\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|solutionrelative:lu2raf\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|c:\\users\\rafva\\documents\\avans informatica\\2024\\p1.3\\2. projecten\\lu2\\lu2raf\\controllers\\environment2dcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|solutionrelative:lu2raf\\controllers\\environment2dcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|c:\\users\\rafva\\documents\\avans informatica\\2024\\p1.3\\2. projecten\\lu2\\lu2raf\\models\\environment2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|solutionrelative:lu2raf\\models\\environment2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|c:\\users\\rafva\\documents\\avans informatica\\2024\\p1.3\\2. projecten\\lu2\\lu2raf\\models\\object2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|solutionrelative:lu2raf\\models\\object2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|c:\\users\\rafva\\documents\\avans informatica\\2024\\p1.3\\2. projecten\\lu2\\lu2raf\\repositories\\object2drepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +13,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|c:\\users\\rafva\\documents\\avans informatica\\2024\\p1.3\\2. projecten\\lu2\\lu2raf\\services\\aspnetidentityauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|solutionrelative:lu2raf\\services\\aspnetidentityauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|c:\\users\\rafva\\documents\\avans informatica\\2024\\p1.3\\2. projecten\\lu2\\lu2raf\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|solutionrelative:lu2raf\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|c:\\users\\rafva\\documents\\avans informatica\\2024\\p1.3\\2. projecten\\lu2\\lu2raf\\models\\environment2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|solutionrelative:lu2raf\\models\\environment2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|c:\\users\\rafva\\documents\\avans informatica\\2024\\p1.3\\2. projecten\\lu2\\lu2raf\\models\\object2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|solutionrelative:lu2raf\\models\\object2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8DEDECE3-B486-4191-A65F-CA0F43A7D82D}|LU2Raf\\LU2Raf.csproj|c:\\users\\rafva\\documents\\avans informatica\\2024\\p1.3\\2. projecten\\lu2\\lu2raf\\repositories\\environment2drepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,26 +62,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Object2D.cs",
               "DocumentMoniker": "C:\\Users\\rafva\\Documents\\Avans Informatica\\2024\\P1.3\\2. Projecten\\LU2\\LU2Raf\\Models\\Object2D.cs",
               "RelativeDocumentMoniker": "LU2Raf\\Models\\Object2D.cs",
               "ToolTip": "C:\\Users\\rafva\\Documents\\Avans Informatica\\2024\\P1.3\\2. Projecten\\LU2\\LU2Raf\\Models\\Object2D.cs",
               "RelativeToolTip": "LU2Raf\\Models\\Object2D.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAIAzwB4AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAEwB4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T11:03:34.068Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Environment2DController.cs",
               "DocumentMoniker": "C:\\Users\\rafva\\Documents\\Avans Informatica\\2024\\P1.3\\2. Projecten\\LU2\\LU2Raf\\Controllers\\Environment2DController.cs",
               "RelativeDocumentMoniker": "LU2Raf\\Controllers\\Environment2DController.cs",
               "ToolTip": "C:\\Users\\rafva\\Documents\\Avans Informatica\\2024\\P1.3\\2. Projecten\\LU2\\LU2Raf\\Controllers\\Environment2DController.cs",
               "RelativeToolTip": "LU2Raf\\Controllers\\Environment2DController.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAEwHYAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAawHUAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-10T18:33:16.849Z",
               "EditorCaption": ""
@@ -96,8 +96,7 @@
               "RelativeToolTip": "LU2Raf\\Repositories\\Environment2DRepository.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAAAC0AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T13:01:50.303Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T13:01:50.303Z"
             },
             {
               "$type": "Document",
@@ -109,38 +108,37 @@
               "RelativeToolTip": "LU2Raf\\Repositories\\IEnvironment2DRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T14:59:43.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T14:59:43.603Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Environment2D.cs",
               "DocumentMoniker": "C:\\Users\\rafva\\Documents\\Avans Informatica\\2024\\P1.3\\2. Projecten\\LU2\\LU2Raf\\Models\\Environment2D.cs",
               "RelativeDocumentMoniker": "LU2Raf\\Models\\Environment2D.cs",
               "ToolTip": "C:\\Users\\rafva\\Documents\\Avans Informatica\\2024\\P1.3\\2. Projecten\\LU2\\LU2Raf\\Models\\Environment2D.cs",
               "RelativeToolTip": "LU2Raf\\Models\\Environment2D.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAIA+wBQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAArwBQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-05T10:30:58.151Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\rafva\\Documents\\Avans Informatica\\2024\\P1.3\\2. Projecten\\LU2\\LU2Raf\\Program.cs",
               "RelativeDocumentMoniker": "LU2Raf\\Program.cs",
               "ToolTip": "C:\\Users\\rafva\\Documents\\Avans Informatica\\2024\\P1.3\\2. Projecten\\LU2\\LU2Raf\\Program.cs",
               "RelativeToolTip": "LU2Raf\\Program.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACkAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-18T09:41:21.177Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "AspNetIdentityAuthenticationService.cs",
               "DocumentMoniker": "C:\\Users\\rafva\\Documents\\Avans Informatica\\2024\\P1.3\\2. Projecten\\LU2\\LU2Raf\\Services\\AspNetIdentityAuthenticationService.cs",
               "RelativeDocumentMoniker": "LU2Raf\\Services\\AspNetIdentityAuthenticationService.cs",
@@ -153,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Object2DRepository.cs",
               "DocumentMoniker": "C:\\Users\\rafva\\Documents\\Avans Informatica\\2024\\P1.3\\2. Projecten\\LU2\\LU2Raf\\Repositories\\Object2DRepository.cs",
               "RelativeDocumentMoniker": "LU2Raf\\Repositories\\Object2DRepository.cs",
