@@ -3,7 +3,7 @@
     public class Object2D
     {
         public Guid Id { get; set; }
-        public string PrefabId { get; set; }
+        public int PrefabId { get; set; }
         public float PositionX { get; set; }
         public float PositionY { get; set; }
         public float ScaleX { get; set; }
@@ -16,7 +16,7 @@
 
         public Object2D() { }
 
-        public Object2D(string prefabId, float positionX, float positionY, float scaleX, float scaleY, float rotationZ, int sortingLayer, string environmentId)
+        public Object2D(int prefabId, float positionX, float positionY, float scaleX, float scaleY, float rotationZ, int sortingLayer, string environmentId)
         {
             Id = Guid.NewGuid();
             PrefabId = prefabId;
