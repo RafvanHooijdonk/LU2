@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LU2Raf")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d7c2dfc23637759427c39fa922c6a527ae0a9c6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56a8f446a1473a807df37cec6674d782e4fdf13d")]
 [assembly: System.Reflection.AssemblyProductAttribute("LU2Raf")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LU2Raf")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

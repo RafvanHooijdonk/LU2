@@ -55,7 +55,7 @@ namespace LU2Raf.Controllers
         [Authorize]
         public async Task<ActionResult> CreateEnvironment2D(Environment2D environment)
         {
-            var ownerUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var ownerUserId = _authenticationService.GetCurrentAuthenticatedUserId(); //User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             if (ownerUserId == null)
             {
@@ -81,7 +81,7 @@ namespace LU2Raf.Controllers
         [Authorize]
         public async Task<ActionResult> GetEnvironments()
         {
-            var ownerUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var ownerUserId = _authenticationService.GetCurrentAuthenticatedUserId();  //User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(ownerUserId) || !Guid.TryParse(ownerUserId, out Guid UserId))
             {
                 return Unauthorized();
