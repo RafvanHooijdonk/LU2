@@ -10,5 +10,7 @@ namespace LU2Raf.Repositories
         Task<IEnumerable<Environment2D>> GetAllAsync();
         //Task<Environment2D> GetByIdAsync(Guid id);  // Changed method name to avoid conflict
         Task<IEnumerable<Environment2D>> GetByOwnerUserIdAsync(Guid id);  // Verander naar IEnumerable
+
+        Task DeleteAsync(string environmentName);
     }
 }

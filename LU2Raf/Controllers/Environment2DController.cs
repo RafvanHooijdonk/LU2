@@ -89,6 +89,30 @@ namespace LU2Raf.Controllers
             return Ok(environment);
         }
 
+        [HttpPost("DeleteEnvironment")]
+        [Authorize]
+        public async Task<ActionResult> DeleteEnvironment2D([FromBody] Environment2D environment)
+        {
+            if (environment == null || string.IsNullOrEmpty(environment.Name))
+            {
+                return BadRequest("Ongeldige of ontbrekende environment naam.");
+            }
+
+            try
+            {
+                await _environmentRepo.DeleteAsync(environment.Name);
+                return Ok($"Environment '{environment.Name}' en bijbehorende objecten zijn verwijderd.");
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Er is een fout opgetreden: {ex.Message}");
+            }
+        }
+
         [HttpPost("CreateObject")]
         [Authorize]
         public async Task<ActionResult> CreateObject2D(Object2D obj)

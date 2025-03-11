@@ -46,5 +46,50 @@ namespace LU2Raf.Repositories
                 OwnerUserId = environment.OwnerUserId 
             });
         }
+
+        public async Task DeleteAsync(string environmentName)
+        {
+            if (string.IsNullOrEmpty(environmentName))
+            {
+                throw new ArgumentException("De environment naam mag niet leeg zijn.", nameof(environmentName));
+            }
+
+            using (var connection = new SqlConnection(_sqlConnectionString))
+            {
+                await connection.OpenAsync();
+
+                // Haal het EnvironmentId op
+                string getIdQuery = "SELECT Id FROM Environment2D WHERE Name = @Name";
+                var environmentId = await connection.ExecuteScalarAsync<Guid>(getIdQuery, new { Name = environmentName });
+
+                if (environmentId == Guid.Empty)
+                {
+                    throw new KeyNotFoundException($"Geen environment gevonden met de naam: {environmentName}");
+                }
+
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        // Verwijder alle objecten die aan dit environment gekoppeld zijn
+                        string deleteObjectsQuery = "DELETE FROM Object2D WHERE EnvironmentId = @EnvironmentId";
+                        await connection.ExecuteAsync(deleteObjectsQuery, new { EnvironmentId = environmentId }, transaction);
+
+                        // Verwijder het environment zelf
+                        string deleteEnvironmentQuery = "DELETE FROM Environment2D WHERE Id = @EnvironmentId";
+                        await connection.ExecuteAsync(deleteEnvironmentQuery, new { EnvironmentId = environmentId }, transaction);
+
+                        // Bevestig de transacties
+                        transaction.Commit();
+                    }
+                    catch (Exception)
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+            }
+        }
+
     }
 }
