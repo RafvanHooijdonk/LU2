@@ -117,10 +117,10 @@ namespace TestProjectWebApi
         {
             // Arrange
             var objects = new List<Object2D>
-    {
-        new Object2D { Id = Guid.NewGuid(), PrefabId = 5, PositionX = 5, PositionY = 10, ScaleX = 1, ScaleY = 1, RotationZ = 0, SortingLayer = 5, EnvironmentId = Guid.NewGuid().ToString() },
-        new Object2D { Id = Guid.NewGuid(), PrefabId = 5, PositionX = 15, PositionY = 20, ScaleX = 2, ScaleY = 2, RotationZ = 90, SortingLayer = 5, EnvironmentId = Guid.NewGuid().ToString() }
-    };
+            {
+                new Object2D { Id = Guid.NewGuid(), PrefabId = 5, PositionX = 5, PositionY = 10, ScaleX = 1, ScaleY = 1, RotationZ = 0, SortingLayer = 5, EnvironmentId = Guid.NewGuid().ToString() },
+                new Object2D { Id = Guid.NewGuid(), PrefabId = 5, PositionX = 15, PositionY = 20, ScaleX = 2, ScaleY = 2, RotationZ = 90, SortingLayer = 5, EnvironmentId = Guid.NewGuid().ToString() }
+            };
 
             // Mock the repository call
             _mockObjectRepo.Setup(repo => repo.GetAllAsync()).ReturnsAsync(objects);

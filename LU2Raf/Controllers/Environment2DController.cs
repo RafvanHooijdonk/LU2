@@ -69,14 +69,6 @@ namespace LU2Raf.Controllers
             return CreatedAtAction(nameof(CreateEnvironment2D), new { id = environment.Id }, environment);
         }
 
-        //[HttpGet("GetEnvironment/{id}")]
-        //[Authorize]
-        //public async Task<ActionResult> GetEnvironment2D(Guid Id)
-        //{
-        //    var environment = await _environmentRepo.GetByIdAsync(Id);
-        //    return environment == null ? NotFound("Environment not found") : Ok(environment);
-        //}
-
         [HttpGet("GetEnvironments")]
         [Authorize]
         public async Task<ActionResult> GetEnvironments()
