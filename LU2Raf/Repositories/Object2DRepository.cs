@@ -16,20 +16,19 @@ namespace LU2Raf.Repositories
             _sqlConnectionString = sqlConnectionString;
         }
 
-        public async Task<IEnumerable<Object2D>> GetAllAsync()
+        public async Task<IEnumerable<Object2D>> GetAllAsync(string environmentId)
         {
             using var connection = new SqlConnection(_sqlConnectionString);
             await connection.OpenAsync();
-            return await connection.QueryAsync<Object2D>("SELECT Id, PrefabId, PositionX, PositionY, ScaleX, ScaleY, RotationZ, SortingLayer, EnvironmentId FROM Object2D");
+
+            // SQL-query aangepast om te filteren op EnvironmentId
+            string query = "SELECT Id, PrefabId, PositionX, PositionY, ScaleX, ScaleY, RotationZ, SortingLayer, EnvironmentId " +
+                           "FROM Object2D WHERE EnvironmentId = @EnvironmentId";
+
+            // De query uitvoeren met de EnvironmentId parameter
+            return await connection.QueryAsync<Object2D>(query, new { EnvironmentId = environmentId });
         }
 
-        public async Task<Object2D> GetByIdAsync(Guid id)
-        {
-            using var connection = new SqlConnection(_sqlConnectionString);
-            await connection.OpenAsync();
-            string query = "SELECT* FROM Object2D WHERE Id = CAST(@Id AS UNIQUEIDENTIFIER)";
-            return await connection.QuerySingleOrDefaultAsync<Object2D>(query, new { id });
-        }
         public async Task AddAsync(Object2D obj)
         {
             obj.Id = Guid.NewGuid();

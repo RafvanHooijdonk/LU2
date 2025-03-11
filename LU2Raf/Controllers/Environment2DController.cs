@@ -109,9 +109,9 @@ namespace LU2Raf.Controllers
 
         [HttpGet("GetObjects")]
         [Authorize]
-        public async Task<ActionResult> GetObjects()
+        public async Task<ActionResult> GetObjects(string environmentId)
         {
-            var objects = await _objectRepo.GetAllAsync();
+            var objects = await _objectRepo.GetAllAsync(environmentId);
             return Ok(objects);
         }
     }

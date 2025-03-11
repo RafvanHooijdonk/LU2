@@ -116,16 +116,18 @@ namespace TestProjectWebApi
         public async Task GetObjects_ValidRequest_ReturnsObjects()
         {
             // Arrange
+            string environmentId = "some-environment-id";  // De omgeving waaraan de objecten gekoppeld zijn
+
             var objects = new List<Object2D>
             {
-                new Object2D { Id = Guid.NewGuid(), PrefabId = 5, PositionX = 5, PositionY = 10, ScaleX = 1, ScaleY = 1, RotationZ = 0, SortingLayer = 5, EnvironmentId = Guid.NewGuid().ToString() },
-                new Object2D { Id = Guid.NewGuid(), PrefabId = 5, PositionX = 15, PositionY = 20, ScaleX = 2, ScaleY = 2, RotationZ = 90, SortingLayer = 5, EnvironmentId = Guid.NewGuid().ToString() }
+                new Object2D { Id = Guid.NewGuid(), PrefabId = 5, PositionX = 5, PositionY = 10, ScaleX = 1, ScaleY = 1, RotationZ = 0, SortingLayer = 5, EnvironmentId = environmentId },
+                new Object2D { Id = Guid.NewGuid(), PrefabId = 5, PositionX = 15, PositionY = 20, ScaleX = 2, ScaleY = 2, RotationZ = 90, SortingLayer = 5, EnvironmentId = environmentId }
             };
 
-            // Mock the repository call
-            _mockObjectRepo.Setup(repo => repo.GetAllAsync()).ReturnsAsync(objects);
+            // Mock de repository call voor de specifieke EnvironmentId
+            _mockObjectRepo.Setup(repo => repo.GetAllAsync(environmentId)).ReturnsAsync(objects);
 
-            // Mock the HttpContext user claim (simulate logged-in user)
+            // Mock de HttpContext user claim (simuleer ingelogde gebruiker)
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, "user123")
@@ -134,20 +136,19 @@ namespace TestProjectWebApi
             var principal = new ClaimsPrincipal(identity);
             var context = new DefaultHttpContext { User = principal };
 
-            // Inject the mock HttpContext into the controller
+            // Injecteer de mock HttpContext in de controller
             _controller.ControllerContext = new ControllerContext
             {
                 HttpContext = context
             };
 
             // Act
-            var result = await _controller.GetObjects() as OkObjectResult;
+            var result = await _controller.GetObjects(environmentId) as OkObjectResult;
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(200, result.StatusCode); // Ensure status code is 200 (OK)
-            Assert.AreEqual(objects, result.Value); // Ensure the returned objects match the mock data
+            Assert.AreEqual(200, result.StatusCode); // Controleer of de statuscode 200 (OK) is
+            Assert.AreEqual(objects, result.Value); // Controleer of de geretourneerde objecten overeenkomen met de gemockte data
         }
-
     }
 }
