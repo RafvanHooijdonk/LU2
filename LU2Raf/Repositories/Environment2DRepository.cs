@@ -58,9 +58,8 @@ namespace LU2Raf.Repositories
             {
                 await connection.OpenAsync();
 
-                // Haal het EnvironmentId op
-                string getIdQuery = "SELECT Id FROM Environment2D WHERE Name = @Name";
-                var environmentId = await connection.ExecuteScalarAsync<Guid>(getIdQuery, new { Name = environmentName });
+                string getEnvironmentId = "SELECT Id FROM Environment2D WHERE Name = @Name";
+                var environmentId = await connection.ExecuteScalarAsync<Guid>(getEnvironmentId, new { Name = environmentName });
 
                 if (environmentId == Guid.Empty)
                 {
@@ -71,15 +70,12 @@ namespace LU2Raf.Repositories
                 {
                     try
                     {
-                        // Verwijder alle objecten die aan dit environment gekoppeld zijn
                         string deleteObjectsQuery = "DELETE FROM Object2D WHERE EnvironmentId = @EnvironmentId";
                         await connection.ExecuteAsync(deleteObjectsQuery, new { EnvironmentId = environmentId }, transaction);
 
-                        // Verwijder het environment zelf
                         string deleteEnvironmentQuery = "DELETE FROM Environment2D WHERE Id = @EnvironmentId";
                         await connection.ExecuteAsync(deleteEnvironmentQuery, new { EnvironmentId = environmentId }, transaction);
 
-                        // Bevestig de transacties
                         transaction.Commit();
                     }
                     catch (Exception)
@@ -90,6 +86,5 @@ namespace LU2Raf.Repositories
                 }
             }
         }
-
     }
 }

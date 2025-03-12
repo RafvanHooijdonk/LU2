@@ -33,17 +33,14 @@ namespace TestProjectWebApi
         [TestMethod]
         public async Task CreateEnvironment2D_ValidEnvironment_ReturnsCreated()
         {
-            // Arrange
             var userId = Guid.NewGuid().ToString();
             var environment = new Environment2D("Test Environment", "user123", 10, 20) { Id = Guid.NewGuid() };
 
             _mockAuthServiceRepo.Setup(x => x.GetCurrentAuthenticatedUserId()).Returns(userId);
             _mockEnvironmentRepo.Setup(repo => repo.AddAsync(It.IsAny<Environment2D>())).Returns(Task.CompletedTask);
 
-            // Act
             var result = await _controller.CreateEnvironment2D(environment) as CreatedAtActionResult;
 
-            // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(nameof(_controller.CreateEnvironment2D), result.ActionName);
             Assert.IsInstanceOfType(result, typeof(CreatedAtActionResult));
@@ -53,7 +50,6 @@ namespace TestProjectWebApi
         [TestMethod]
         public async Task GetEnvironment2D_ValidId_ReturnsEnvironment()
         {
-            // Arrange
             var userId = Guid.NewGuid();
             var environment = new Environment2D("Test Environment", "user123", 10, 20) { Id = Guid.NewGuid() };
             var userEnvironments = new List<Environment2D> { environment };
@@ -61,10 +57,8 @@ namespace TestProjectWebApi
             _mockAuthServiceRepo.Setup(x => x.GetCurrentAuthenticatedUserId()).Returns(userId.ToString());
             _mockEnvironmentRepo.Setup(repo => repo.GetByOwnerUserIdAsync(userId)).ReturnsAsync(userEnvironments);
 
-            // Act
             var result = await _controller.GetEnvironments() as OkObjectResult;
 
-            // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(userEnvironments, result.Value);
         }
@@ -72,7 +66,6 @@ namespace TestProjectWebApi
         [TestMethod]
         public async Task CreateObject2D_ValidObject_ReturnsCreated()
         {
-            // Arrange
             var obj = new Object2D
             {
                 PrefabId = 5,
@@ -85,10 +78,8 @@ namespace TestProjectWebApi
                 EnvironmentId = Guid.NewGuid().ToString()
             };
 
-            // Mock the repository call
             _mockObjectRepo.Setup(repo => repo.AddAsync(It.IsAny<Object2D>())).Returns(Task.CompletedTask);
 
-            // Mock the HttpContext user claim (simulate logged-in user)
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, "user123")
@@ -97,16 +88,13 @@ namespace TestProjectWebApi
             var principal = new ClaimsPrincipal(identity);
             var context = new DefaultHttpContext { User = principal };
 
-            // Inject the mock HttpContext into the controller
             _controller.ControllerContext = new ControllerContext
             {
                 HttpContext = context
             };
 
-            // Act
             var result = await _controller.CreateObject2D(obj) as CreatedAtActionResult;
 
-            // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(nameof(_controller.CreateObject2D), result.ActionName);
             Assert.AreEqual(obj, result.Value);
@@ -115,8 +103,7 @@ namespace TestProjectWebApi
         [TestMethod]
         public async Task GetObjects_ValidRequest_ReturnsObjects()
         {
-            // Arrange
-            string environmentId = "some-environment-id";  // De omgeving waaraan de objecten gekoppeld zijn
+            string environmentId = "test-environment-id"; 
 
             var objects = new List<Object2D>
             {
@@ -124,10 +111,8 @@ namespace TestProjectWebApi
                 new Object2D { Id = Guid.NewGuid(), PrefabId = 5, PositionX = 15, PositionY = 20, ScaleX = 2, ScaleY = 2, RotationZ = 90, SortingLayer = 5, EnvironmentId = environmentId }
             };
 
-            // Mock de repository call voor de specifieke EnvironmentId
             _mockObjectRepo.Setup(repo => repo.GetAllAsync(environmentId)).ReturnsAsync(objects);
 
-            // Mock de HttpContext user claim (simuleer ingelogde gebruiker)
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, "user123")
@@ -136,19 +121,16 @@ namespace TestProjectWebApi
             var principal = new ClaimsPrincipal(identity);
             var context = new DefaultHttpContext { User = principal };
 
-            // Injecteer de mock HttpContext in de controller
             _controller.ControllerContext = new ControllerContext
             {
                 HttpContext = context
             };
 
-            // Act
             var result = await _controller.GetObjects(environmentId) as OkObjectResult;
 
-            // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(200, result.StatusCode); // Controleer of de statuscode 200 (OK) is
-            Assert.AreEqual(objects, result.Value); // Controleer of de geretourneerde objecten overeenkomen met de gemockte data
+            Assert.AreEqual(200, result.StatusCode); 
+            Assert.AreEqual(objects, result.Value);
         }
     }
 }

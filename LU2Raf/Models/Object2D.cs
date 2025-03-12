@@ -10,8 +10,6 @@
         public float ScaleY { get; set; }
         public float RotationZ { get; set; }
         public int SortingLayer { get; set; }
-
-        // Voeg hier de EnvironmentId toe
         public string EnvironmentId { get; set; }
 
         public Object2D() { }

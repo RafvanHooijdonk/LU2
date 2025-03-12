@@ -21,11 +21,9 @@ namespace LU2Raf.Repositories
             using var connection = new SqlConnection(_sqlConnectionString);
             await connection.OpenAsync();
 
-            // SQL-query aangepast om te filteren op EnvironmentId
             string query = "SELECT Id, PrefabId, PositionX, PositionY, ScaleX, ScaleY, RotationZ, SortingLayer, EnvironmentId " +
                            "FROM Object2D WHERE EnvironmentId = @EnvironmentId";
 
-            // De query uitvoeren met de EnvironmentId parameter
             return await connection.QueryAsync<Object2D>(query, new { EnvironmentId = environmentId });
         }
 
