@@ -51,7 +51,7 @@ namespace TestProjectWebApi
         public async Task GetEnvironment2D_ValidId_ReturnsEnvironment()
         {
             var userId = Guid.NewGuid();
-            var environment = new Environment2D("Test Environment", "user123", 10, 20) { Id = Guid.NewGuid() };
+            var environment = new Environment2D("Test Environment", "Test123", 10, 20) { Id = Guid.NewGuid() };
             var userEnvironments = new List<Environment2D> { environment };
 
             _mockAuthServiceRepo.Setup(x => x.GetCurrentAuthenticatedUserId()).Returns(userId.ToString());
@@ -82,7 +82,7 @@ namespace TestProjectWebApi
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, "user123")
+                new Claim(ClaimTypes.NameIdentifier, "Test123")
             };
             var identity = new ClaimsIdentity(claims, "mock");
             var principal = new ClaimsPrincipal(identity);
@@ -115,7 +115,7 @@ namespace TestProjectWebApi
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, "user123")
+                new Claim(ClaimTypes.NameIdentifier, "Test123")
             };
             var identity = new ClaimsIdentity(claims, "mock");
             var principal = new ClaimsPrincipal(identity);
